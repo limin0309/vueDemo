@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF_8">
+    <title>Title</title>
+    <style>
+        .bg {
+            color: red
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="bg" v-bind:id="bg1">
+        <div>hello world!!</div>
+        <div>{{msg}}</div>
+        <div>{{count}}  {{(count+1)*10}}</div>
+        <!-- template中可以运算 -->
+
+        <!-- 如果想在html中输出原始的html代码 -->
+        <div v-html="template"></div>
+        <!-- 下面是错误写法： -->
+        <div>{{template}}</div> 
+
+        <!-- a标签与html一样 -->
+        <a href="http://www.baidu.com">百度</a>
+        <!-- v-on 可以缩写成@ -->
+        <button type="button" @:click="submit()">加数字</button>
+        <!-- v-bind给页面的元素绑定一个属性 v-bind可以缩写成:-->
+        <a :href="url">商家中心</a>
+        
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '.bg', // 绑定的实例,唯一的
+        data: {
+            bg1:'app-bind', // v-bind绑定后我们在浏览器的elements中就会发现当前的class="bg"也加上了个id=“app-bind”。我们所有的变量数据都可以在data中
+            msg: 'hello vue',
+            count: 0,
+            template:'<div>hello template</div>',
+            url:'http://store-test.gaojihealth.cn/user/login'
+        },
+        methods:{
+            submit:function(){
+                this.count ++
+                console.log('sss')
+            }
+        }
+    })
+
+    // 本节总结：模版语法：
+    //认识vue文件结构（template，script，style）
+    //模版语法包含插值、指令（指令缩写）
+    //插值语法{{msg}} ,数据,js表达式
+    //指令（指令缩写） @click v-if :href  v-bind可以缩写成:   v-on 可以缩写成@ 
+</script>
+
+</html>

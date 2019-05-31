@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF_8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+    <div>{{msg}}</div>
+    <div>{{msg1}}</div>
+    </div>
+</body>
+<script>
+    var arr='new test'
+    var app=new Vue({
+        el:'#app',
+        data:{
+            msg:'Hello Vue',
+            another:'another Hello Vue'
+        },
+        watch:{
+            // 后期实战中，我们也会根据变化，在watch中调用相应的请求。
+            msg:function(newval,oldval){
+                console.log('newval is:'+newval);
+                console.log('oldval is:'+ oldval);
+            }
+        },
+        // 在前面加上var app={...},在控制台输入app就打印出所有的app内容
+        // app.msg就输出 Hello Vue。当用app.msg="Hello 123"，就会触发
+        // watch方法，输出watch监听的console。
+        computed:{
+            msg1:function(){
+                return 'computed:'+this.msg+','+this.another +arr// this就是vue对象或者说是本实例
+            }
+            // data中的this.msg或者this.another中有变化，都会触发computer更新msg1
+            // arr是实例外的值，即使修改arr的值也不会影响msg1的值.但是在修改本实例数据时候就会触发msg1的变化，也会影响和msg1有关的变化
+        }
+    })
+
+    // 本节总结：
+    // 计算属性“computed
+    // 侦听器：watch
+    // 使用场景：watch（异步场景），computed（数据联动） 
+    // 一句话总结：watch监听的是一个变量/常量。可以是一个单一的变量也可以是数组。        computed可以监听很多变量，但是一定要在这个实例里面
+</script>
+</html>
