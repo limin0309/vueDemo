@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF_8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+    <div v-if="count!=0">count大于0，count的值是{{count}}</div> 
+    <div v-else-if="count<0&& count>-5">{{count}}</div>
+    <div v-else>{{msg}}</div>
+
+
+
+    <div v-show="count==-1">show:{{count}}</div>
+
+
+
+    <div v-for="item in list">
+        <div v-if="item.age>29" 
+            v-bind:style='styleMsg'
+            v-bind:class="['active','add','more',{'another':true}]"
+            >
+                {{item.name}}
+        </div>
+        <div v-else>
+                {{item.age}}
+        </div>
+    </div>  <!--相当与创建了5个div标签-->
+    </div>
+</body>
+<script>
+    var arr='new test'
+    var app=new Vue({
+        el:'#app',
+        data:{
+            msg:'Hello Vue',
+            count:0,
+            // list:[1,2,3,4,5],
+            styleMsg:{
+                color:'red',
+                textShadow:'0 0 5px yellow' // 加阴影样式 在css3中
+                },
+            list:[
+                {
+                    name:'李伟',
+                    age:30
+                },{
+                    name:'例三',
+                    age:28
+                },{
+                    name:'张思',
+                    age:27
+                },{
+                    name:'李四',
+                    age:31
+                },{
+                    name:'李ss',
+                    age:32
+                }
+            ]
+        },
+    })
+
+    // 本节重点 2.5
+    //     v-0n是绑定事件的 
+    // 条件渲染
+    //     v-if v-else-if v-else 如果有一个成立就不会继续向下判断。如上面，app.count=-1,条件满足1，2.但是只会显示1判断的输出
+    //     注意：v-show和v-if的区别
+    //     v-for 和 v-if/v-show 结合是条件渲染和列表渲染的结合
+    // 列表渲染
+    //     v-for
+    // class与style绑定
+    //     style的绑定:
+    //     class的绑定:
+
+    // 本节总结：
+    // 模版语法
+    // 计算属性与侦听器
+    // 常用指令(列表、条件、class与style样式绑定)
+    // 下一节
+    // 如何工程化
+    // 如何写出优雅的vue代码？
+    // 如何调试vue
+
+</script>
+</html>
