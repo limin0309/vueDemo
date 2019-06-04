@@ -168,9 +168,4 @@ vuex
     交互设计、逻辑设计、接口设计
     代码实现、测试运行、线上部署
     
-
-
-
-
-
-
+github地址：https://github.com/kanlidy/vue-lessons-demo
