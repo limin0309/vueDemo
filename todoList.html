@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF_8">
+    <title>TodoList</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <input v-model="inputValue"/>
+            <button @click="handleSubmit">提交</button>
+        </div>
+        <ul>
+            <li v-for="(item,index) in lists" :key="index">{{item}}</li>
+          
+        </ul>
+    </div>
+</body>
+<script>
+    var arr='new test'
+    var app=new Vue({
+        el:'#app',
+        data:{
+            inputValue:'',
+            lists:[
+                1,2,3,44,55,5,
+            ]
+        }
+        
+    })
+</script>
+</html>
