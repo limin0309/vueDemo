@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF_8">
+    <title>TodoList</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <input v-model="inputValue"/>
+            <button @click="handleSubmit">提交</button>
+        </div>
+        <ul>
+            <!-- <li v-for="(item,index) in lists" :key="index">{{item}}</li> -->
+            <!-- 父组件通过@监听到事件后触发父组件的事件。@delete=“handleDelete” -->
+            <todo-item v-for="(item,index) in lists" :key="index" :content="item" :index="index"
+            @delete="handleDelete"  
+            ></todo-item>
+        </ul>
+    </div>
+</body>
+<script>
+    //全局组件 每个组件都是vue的实例，每个组件也都可以写methods 。props temmplate methods....
+    Vue.component('todo-item',{
+        props:['content','index'], // 上面通过:content="item"传值，下面的组件通过 props:['content'],拿值
+        template:'<li @click="handleClick">{{content}}{{index}}</li>',
+        methods:{
+            handleClick:function(){   // 子组件的方法
+                this.$emit('delete',this.index)    // 通过this.$emit传递给父组件   发布订阅模式       
+            }
+        }
+    }) 
+
+    // // 使用局部组件，在el挂载的模板里用components绑这个局部组件
+    // var TodoItem={
+    //     template:'<li>item</li>'
+    // }
+
+
+    var app=new Vue({
+        el:'#app',
+        // components:{
+        //     'todo-item':TodoItem
+        // },
+        // template:'', // 如果不定义这个实例标签，那么他会去挂载点 el：'#app'里去找，那个就当成实例挂载
+        data:{
+            inputValue:'',
+            lists:[
+            
+            ]
+        },
+        methods:{
+            handleSubmit(){
+                this.lists.push(this.inputValue);
+                this.inputValue=''
+            },
+            handleDelete(index){ // 子组件传递过来的参数 index，通过splice删除点击的数据
+                this.lists.splice(index,1)
+            }
+        }
+        
+    })
+</script>
+</html>

@@ -169,3 +169,11 @@ vuex
     代码实现、测试运行、线上部署
     
 github地址：https://github.com/kanlidy/vue-lessons-demo
+
+
+
+
+
+、、vue2.5入门 TodoList
+1.上面通过:content="item"传值，下面的组件通过 props:['content'],拿值  父子组件之间传递
+test-todo 是用vue-cli脚手架 创建的todoList页面
