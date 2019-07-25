@@ -22,15 +22,15 @@
         <!-- 如果想在html中输出原始的html代码 -->
         <div v-html="template"></div>
         <!-- 下面是错误写法： -->
-        <div>{{template}}</div> 
+        <div>{{template}}</div>
 
         <!-- a标签与html一样 -->
         <a href="http://www.baidu.com">百度</a>
         <!-- v-on 可以缩写成@ -->
-        <button type="button" @:click="submit()">加数字</button>
+        <button type="button" @click="submit()">加数字</button>
         <!-- v-bind给页面的元素绑定一个属性 v-bind可以缩写成:-->
         <a :href="url">商家中心</a>
-        
+
     </div>
 </body>
 <script>
@@ -55,7 +55,7 @@
     //认识vue文件结构（template，script，style）
     //模版语法包含插值、指令（指令缩写）
     //插值语法{{msg}} ,数据,js表达式
-    //指令（指令缩写） @click v-if :href  v-bind可以缩写成:   v-on 可以缩写成@ 
+    //指令（指令缩写） @click v-if :href  v-bind可以缩写成:   v-on 可以缩写成@
 </script>
 
 </html>
