@@ -4,6 +4,11 @@
     
     </div>
     <router-view/>
+    <router-link to="/">Home</router-link>
+    <router-link to="/add">Add</router-link>
+    <router-link to="/info">Info</router-link>
+
+
   </div>
 </template>
 

@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    lists:[]
+    lists:[{title:'标题','content':'啥'}]
   },
   mutations: {
     addItem(state,value){
