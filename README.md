@@ -177,3 +177,7 @@ github地址：https://github.com/kanlidy/vue-lessons-demo
 、、vue2.5入门 TodoList
 1.上面通过:content="item"传值，下面的组件通过 props:['content'],拿值  父子组件之间传递
 test-todo 是用vue-cli脚手架 创建的todoList页面
+
+
+
+第四章是项目实战，课后需要再重新看一下第四章，其他章节内容在该项目中有介绍
